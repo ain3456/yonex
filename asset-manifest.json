@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/yonex/static/css/main.9233fd6a.css",
+    "main.js": "/yonex/static/js/main.3825ff83.js",
+    "static/js/453.126c4ae9.chunk.js": "/yonex/static/js/453.126c4ae9.chunk.js",
+    "index.html": "/yonex/index.html",
+    "main.9233fd6a.css.map": "/yonex/static/css/main.9233fd6a.css.map",
+    "main.3825ff83.js.map": "/yonex/static/js/main.3825ff83.js.map",
+    "453.126c4ae9.chunk.js.map": "/yonex/static/js/453.126c4ae9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9233fd6a.css",
+    "static/js/main.3825ff83.js"
+  ]
+}
