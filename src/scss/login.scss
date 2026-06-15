@@ -1,0 +1,50 @@
+@import './setting.scss';
+@import './base.scss';
+
+#loginSection{
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 120px;
+   
+    .loginTitle{
+        text-align: center;
+        font-size: 2.5rem;
+        line-height: 5;
+    }
+    label{
+        display: block;
+        padding-top: 30px;
+        padding-bottom: 5px;
+        font-size: 0.8rem;
+    }
+    input{
+        width: 280px;
+        height: 30px;
+        border-radius: 5px;
+        padding: 5px 10px;
+        outline: none;
+        font-size: 0.8rem;
+    }
+    .loginBtn{
+        width: 305px;
+        margin: 0 auto;
+        border: none;
+        border-radius: 5px;
+        background: $third-color;
+        color: $primary-color;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 5px 10px;
+        height: 45px;
+        margin-top: 35px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #registerBox{
+        padding-top: 5px;
+        a{
+            font-size: 0.8rem;
+            padding-left: 5px;
+        }
+    }
+}

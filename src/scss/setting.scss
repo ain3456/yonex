@@ -1,0 +1,62 @@
+
+$font: "Pretendard Variable", "Pretendard",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Apple SD Gothic Neo",
+  "Noto Sans KR",
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+
+$primary-color: #fff;
+$second-color: #CACACA;
+$third-color: #000;
+$background-color: #1C1C1C;
+$hover-color:#F5C542;
+
+$footerFontSize: 1rem;
+$footerTitleFontSize:1.2rem;
+
+@mixin sectionPadding{
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+
+@mixin button{
+  background: $second-color;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@mixin bannerText{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  span{
+    display: block;
+  }
+  span.bannerDate{
+    font-size: 1.2rem;
+    line-height: 2.5;
+  }
+  span.bannerName{
+    font-size: 3.5rem;
+    font-weight: bold;
+  }
+  span.bannerText{
+    font-size: 1rem;
+    line-height: 10;
+  }
+}
+
+@mixin h1{
+  padding-bottom: 50px;
+  text-align: center;
+  font-size: 3rem;
+}

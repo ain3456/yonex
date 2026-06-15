@@ -1,0 +1,89 @@
+@import './setting.scss';
+@import './base.scss';
+
+#registerSection{
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    .registerTitle{
+        text-align: center;
+        font-size: 2.5rem;
+        line-height: 5;
+    }
+    label{
+        width: 400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 30px;
+        padding-bottom: 5px;
+        font-size: 1rem;
+    }
+    label.idLabel{
+        width: 480px;
+        margin-left: 80px;
+        display: flex;
+        justify-content: space-between;
+    }
+    input{
+        width: 200px;
+        height: 20px;
+        border-radius: 5px;
+        padding: 5px 10px;
+        outline: none;
+        font-size: 0.8rem;
+        background: none;
+        border: 2px solid lightgrey;
+        color: $primary-color;
+    }
+    .idBox{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .checkId{
+        border: none;
+        border-radius: 5px;
+        background: $third-color;
+        color: $primary-color;
+        padding: 8px 10px;
+        cursor: pointer;
+    }
+    .btnBox{
+        width: 400px;
+        margin: 0 auto;
+        display: flex;
+        gap: 10px;
+        .registerBtn{
+            width: 50%;
+            border: none;
+            border-radius: 5px;
+            background: $third-color;
+            color: $primary-color;
+            font-size: 1rem;
+            line-height: 1.5;
+            padding: 5px 10px;
+            height: 45px;
+            margin-top: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 12px;
+        }
+        .resetBtn{
+            width: 50%;
+            border: none;
+            border-radius: 5px;
+            background: $third-color;
+            color: $primary-color;
+            font-size: 1rem;
+            line-height: 1.5;
+            padding: 5px 10px;
+            height: 45px;
+            margin-top: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }  
+    }
+}

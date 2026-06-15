@@ -1,0 +1,63 @@
+@import './setting.scss';
+@import './base.scss';
+
+#cartSection{
+    width: 60%;
+    @include sectionPadding;
+    margin:  0 auto;
+    #cartTitle{
+        width: 100%;
+        margin: 0 auto;
+        .line{
+            width: 100%;
+            height: 4px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            background: lightgray;
+        }
+    }
+    .itemBox{
+        border-bottom: 1px solid lightgray;
+        .item{
+            width: 60%;
+            margin-left: 0;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 50px;
+            .itemImg{
+                width: 200px;
+                height: 200px;
+                background: $second-color;
+                border-radius: 5px;
+                img{
+                    width: 100%;
+                }
+            }
+            .itemInfo{
+                display: flex;
+                .info{
+                    display: flex;
+                    flex-direction: column;
+                li{
+                    padding-bottom: 50px;
+                }
+            }
+            .selectBox{
+                display: flex;
+                align-items: flex-end;
+                gap: 10px;
+                .select{
+                    padding: 7px 10px;
+                    border-radius: 5px;
+                }
+                .deleteBtn{
+                    background: $third-color;
+                    color: $primary-color;
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                }
+            }
+        }
+        }
+    }
+}

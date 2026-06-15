@@ -1,0 +1,546 @@
+@charset "UTF-8";
+body {
+  width: 100%;
+  background-color: #252525;
+  font-family: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+  color: #fff;
+}
+
+html {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.8);
+}
+header #upHeader {
+  width: 90%;
+  height: 60px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+header #upHeader h1 {
+  width: 150px;
+}
+header #upHeader h1 img {
+  width: 100%;
+}
+header #upHeader #account {
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+}
+header #upHeader #account a:hover {
+  color: #F5C542;
+}
+header #upHeader #account .logout {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+}
+header #downHeader {
+  width: 90%;
+  height: 60px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+header #downHeader #menu {
+  margin-right: 30%;
+}
+header #downHeader #menu ul {
+  display: flex;
+  gap: 8%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  align-items: center;
+}
+header #downHeader #menu ul li {
+  position: relative;
+}
+header #downHeader #menu ul li a {
+  display: block;
+  color: #fff;
+}
+header #downHeader #menu ul li a:hover {
+  color: #F5C542;
+}
+header #downHeader #menu ul li:hover > .subMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+header #downHeader #menu ul li .subMenu {
+  color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 40px);
+  width: -moz-max-content;
+  width: max-content;
+  display: block;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 40px 50px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.4s;
+}
+header #downHeader #menu ul li .subMenu ul {
+  width: 100%;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+}
+header #downHeader #menu ul li .subMenu ul li {
+  display: block;
+  text-align: center;
+}
+header #downHeader #menu ul li .subMenu ul li a {
+  display: block;
+}
+header #downAccount ul {
+  display: flex;
+  gap: 5%;
+  font-size: 2rem;
+  align-items: center;
+}
+header #downAccount ul li .xi-heart-o, header #downAccount ul li .xi-cart-o {
+  color: #fff;
+  cursor: pointer;
+}
+header #downAccount ul li .xi-heart-o:hover, header #downAccount ul li .xi-cart-o:hover {
+  color: #F5C542;
+}
+header #downAccount ul li #searchBox {
+  width: 200px;
+  height: 30px;
+  position: relative;
+  align-items: center;
+  border: 3px solid #fff;
+  border-radius: 40px;
+  cursor: pointer;
+}
+header #downAccount ul li #searchBox input {
+  width: 140px;
+  height: 25px;
+  font-size: 1rem;
+  background: none;
+  padding-left: 20px;
+  border: none;
+  outline: none;
+  color: #fff;
+  display: block;
+  align-items: center;
+}
+header #downAccount ul li #searchBox .xi-search {
+  font-size: 1.2rem;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+@keyframes up_down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+#mainSection {
+  width: 100%;
+  /*메인*/
+}
+#mainSection #main {
+  width: 100%;
+  height: 600vh;
+  margin: 0;
+  overflow: visible;
+  position: relative;
+}
+#mainSection #main #vid {
+  position: sticky;
+  top: 120px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+}
+#mainSection #main #vidBtn {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  z-index: 10;
+}
+#mainSection #main #vidBtn a {
+  background: radial-gradient(circle at 20% 20%, #2a2a2a, transparent 40%), radial-gradient(circle at 80% 30%, #1f1f1f, transparent 45%), linear-gradient(to bottom, #0a0a0a, #000);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.45), 0 10px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 60px;
+  padding: 10px 25px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.5;
+  width: 200px;
+  height: 50px;
+  color: #CACACA;
+  cursor: pointer;
+}
+#mainSection #main #scrollIcon {
+  width: 100px;
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%, -5%);
+  opacity: 1;
+  transition: 0.3 ease;
+  pointer-events: none;
+  z-index: 2;
+  animation: up_down 1.5s ease-in-out infinite;
+}
+#mainSection #main #scrollIcon .xi-angle-down {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+}
+#mainSection {
+  /*컬렉션*/
+}
+#mainSection #collection {
+  width: 100%;
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+#mainSection #collection ul {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  gap: 50px;
+}
+#mainSection #collection ul li {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 0.6s ease;
+}
+#mainSection #collection ul li img {
+  width: 100%;
+}
+#mainSection #collection ul li p {
+  padding-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#mainSection #collection ul li.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#mainSection {
+  /*배너1*/
+}
+#mainSection .banner {
+  width: 100%;
+  padding-top: 250px;
+  padding-bottom: 250px;
+  background: #1C1C1C;
+}
+#mainSection .banner a {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+#mainSection .banner a img {
+  width: 100%;
+}
+#mainSection .banner p {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+#mainSection .banner p span {
+  display: block;
+}
+#mainSection .banner p span.bannerDate {
+  font-size: 1.2rem;
+  line-height: 2.5;
+}
+#mainSection .banner p span.bannerName {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+#mainSection .banner p span.bannerText {
+  font-size: 1rem;
+  line-height: 10;
+}
+#mainSection .banner .purchaseBtn {
+  display: block;
+  margin: 0 auto;
+  background: #CACACA;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+#mainSection {
+  /*md's pick*/
+}
+#mainSection #pick {
+  width: 100%;
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+#mainSection #pick h1 {
+  padding-bottom: 50px;
+  text-align: center;
+  font-size: 3rem;
+}
+#mainSection #pick ul {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  gap: 50px;
+}
+#mainSection #pick ul li {
+  width: 33.33%;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 0.6s ease;
+}
+#mainSection #pick ul li a {
+  width: 100%;
+}
+#mainSection #pick ul li a img {
+  width: 100%;
+  background: rgb(228, 228, 228);
+  border-radius: 20px;
+  transition: 0.2 ease;
+}
+#mainSection #pick ul li a img:hover {
+  transform: scale(1.1);
+}
+#mainSection #pick ul li p {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 2.5;
+  color: #CACACA;
+}
+#mainSection #pick ul li.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#mainSection {
+  /*배너2*/
+}
+#mainSection #banner {
+  width: 100%;
+  padding-top: 250px;
+  padding-bottom: 250px;
+  background: #1C1C1C;
+}
+#mainSection #banner a {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+#mainSection #banner a img {
+  width: 100%;
+}
+#mainSection #banner p {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+#mainSection #banner p span {
+  display: block;
+}
+#mainSection #banner p span.bannerDate {
+  font-size: 1.2rem;
+  line-height: 2.5;
+}
+#mainSection #banner p span.bannerName {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+#mainSection #banner p span.bannerText {
+  font-size: 1rem;
+  line-height: 10;
+}
+#mainSection #banner #purchaseBtn {
+  display: block;
+  margin: 0 auto;
+  background: #CACACA;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+#mainSection {
+  /*Inside Yonex*/
+}
+#mainSection #news {
+  width: 100%;
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+#mainSection #news h1 {
+  padding-bottom: 50px;
+  text-align: center;
+  font-size: 3rem;
+}
+#mainSection #news ul {
+  display: flex;
+  width: 60%;
+  margin: 0 auto;
+  gap: 100px;
+}
+#mainSection #news ul li {
+  width: 50%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+#mainSection #news ul li img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+#mainSection #news ul li:hover .newsBox {
+  display: block;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  line-height: 1.5;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+#mainSection #news ul li:hover .newsBox p {
+  width: 65%;
+  height: 74%;
+  justify-content: center;
+  align-items: flex-end;
+  margin: auto;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: bold;
+  padding: 50px;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+#mainSection #news ul li:hover .newsBox p .newsDate {
+  font-size: 1.2rem;
+}
+
+/*footer*/
+#footer {
+  width: 100%;
+}
+#footer #footerUp {
+  display: flex;
+  gap: 8%;
+  width: 80%;
+  margin: 0 auto;
+}
+#footer #footerUp .footerLogo {
+  width: 150px;
+}
+#footer #footerUp .footerLogo a {
+  width: 100%;
+}
+#footer #footerUp .footerLogo a img {
+  width: 100%;
+}
+#footer #footerUp .xi-mail, #footer #footerUp .xi-call {
+  margin-right: 10px;
+}
+#footer #footerUp .footerTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-left: 0;
+  font-weight: 0.8rem;
+}
+#footer #footerUp .footerEmail {
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-left: 0;
+  font-weight: 1.2rem;
+  margin-top: 20px;
+}
+#footer #footerUp li {
+  font-size: 1rem;
+  line-height: 2.2;
+  margin-left: 5px;
+  font-size: 0.9rem;
+}
+#footer #footerDown {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 80%;
+  margin: 0 auto;
+}
+#footer #footerDown li .footerInfo {
+  display: flex;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+#footer #footerDown li .footerText {
+  font-size: 0.8rem;
+}/*# sourceMappingURL=main.css.map */

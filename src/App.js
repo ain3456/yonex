@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { BrowserRouter,Routes,Route,useLocation } from 'react-router-dom';
+import './css/reset.css';
+import './css/main.css';
+import { Header, Footer } from './component/index';
+import Main from './pages/Main';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Cart from './pages/Cart';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [openMenu, setOpenMenu] = useState(null);
+    const location = useLocation();
+
+    const toggleMenu = (menu) => {
+        if (openMenu === menu) {
+            setOpenMenu(null);
+        } else {
+            setOpenMenu(menu);
+        }
+    };
+
+    return (
+        <>
+            <Header 
+                openMenu={openMenu} 
+                toggleMenu={toggleMenu} 
+                setOpenMenu={setOpenMenu}
+            />
+
+            <Routes>
+                <Route path="/" element={<Main/>}/>
+                <Route path="/Login" element={<Login/>}/>
+                <Route path="/Register" element={<Register/>}/>
+                <Route path="/Cart" element={<Cart/>}/>
+            </Routes>
+
+            {location.pathname !== '/Login' && location.pathname !== '/Register' && <Footer />}
+        </>
+    );
 }
 
 export default App;
