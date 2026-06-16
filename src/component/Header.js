@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 function Header({ openMenu, toggleMenu, setOpenMenu }) {
     const menu = [
@@ -13,18 +13,13 @@ function Header({ openMenu, toggleMenu, setOpenMenu }) {
     
     const [loginUser, setLoginUser] = useState(sessionStorage.getItem('id'));
     const navigate = useNavigate();
+    const location = useLocation();
 
 
     useEffect(() => {
-    const handleStorageChange = () => {
         setLoginUser(sessionStorage.getItem('id'));
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
-    }, []);
+    }, [location]); 
     
-
     const handleLogout = () => {
         if (window.confirm("로그아웃 하시겠습니까?")) {
             sessionStorage.removeItem('id');
