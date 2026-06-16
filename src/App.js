@@ -10,6 +10,7 @@ import Cart from './pages/Cart';
 
 function App() {
     const [openMenu, setOpenMenu] = useState(null);
+    const [user, setUser] = useState(null);
     const location = useLocation();
 
     const toggleMenu = (menu) => {
@@ -26,11 +27,13 @@ function App() {
                 openMenu={openMenu} 
                 toggleMenu={toggleMenu} 
                 setOpenMenu={setOpenMenu}
+                user={user} 
+                setUser={setUser}   
             />
 
             <Routes>
                 <Route path="/" element={<Main/>}/>
-                <Route path="/Login" element={<Login/>}/>
+                <Route path="/Login" element={<Login setUser={setUser} />}/>
                 <Route path="/Register" element={<Register/>}/>
                 <Route path="/Cart" element={<Cart/>}/>
             </Routes>

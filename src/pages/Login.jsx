@@ -11,17 +11,22 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLoginSubmit = async (e) => {
-    e.preventDefault(); 
+  e.preventDefault();
 
-    const result = await loginWithEmail(id, pw);
+  console.log("id:", id);
+  console.log("pw:", pw);
 
-    if (result.success) {
-      alert(`${result.user.email}님, 환영합니다!`);
-      navigate('/');
-    } else {
-      alert(result.message);
-    }
-  };
+  const result = await loginWithEmail(id, pw);
+
+  console.log("login result:", result);
+
+  if (result.success) {
+    sessionStorage.setItem('id', result.user.email);
+    window.location.href = '/';
+  } else {
+    alert(result.message);
+  }
+};
 
   return (
     <section id='loginSection'>

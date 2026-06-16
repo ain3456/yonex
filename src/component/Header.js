@@ -1,6 +1,5 @@
-import React from 'react';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Header({ openMenu, toggleMenu, setOpenMenu }) {
     const menu = [
@@ -12,23 +11,21 @@ function Header({ openMenu, toggleMenu, setOpenMenu }) {
         { title: "Customer", sub: ["렌탈 서비스", "A/S 조회", "정품 등록/조회", "대리점 매장 안내", "온라인전문점 안내", "대리점 개설안내", "고객센터"] }
     ];
     
-    const [loginUser, setLoginUser] = useState(null);
-    const location = useLocation();
+    const [loginUser, setLoginUser] = useState(sessionStorage.getItem('id'));
 
     useEffect(() => {
-        const savedId = sessionStorage.getItem('id'); 
-        
-        if (savedId && savedId !== "undefined" && savedId !== "null") {
-            setLoginUser(savedId); 
-        } else {
-            setLoginUser(null);
-        }
-    }, [location]);
+    const handleStorageChange = () => {
+        setLoginUser(sessionStorage.getItem('id'));
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+    }, []);
+    
 
     const handleLogout = () => {
         if (window.confirm("로그아웃 하시겠습니까?")) {
-            sessionStorage.removeItem('id'); 
-            setLoginUser(null);
+            sessionStorage.removeItem('id');
             window.location.href = '/';
         }
     };
