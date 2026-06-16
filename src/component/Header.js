@@ -15,12 +15,13 @@ function Header({ openMenu, toggleMenu, setOpenMenu }) {
     const navigate = useNavigate();
     const location = useLocation();
 
-
     useEffect(() => {
-        setLoginUser(sessionStorage.getItem('id'));
-    }, [location]); 
+    const savedId = sessionStorage.getItem('id');
+    setLoginUser(savedId);
+    }, [location.pathname, location.search, location.hash]); 
     
-    const handleLogout = () => {
+    const handleLogout = (e) => {
+        e.preventDefault();
         if (window.confirm("로그아웃 하시겠습니까?")) {
             sessionStorage.removeItem('id');
             setLoginUser(null);
