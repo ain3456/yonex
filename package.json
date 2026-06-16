@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/ain3456/yonex",
+  "homepage": "https://ain3456.github.io/yonex",
   "name": "yonex",
   "version": "0.1.0",
   "private": true,
@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+    "firebase": "^12.14.0",
     "jquery": "^4.0.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
