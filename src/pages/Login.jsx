@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import '../css/reset.css';
 import '../css/login.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Input from '../component/Input';
 import { loginWithEmail } from '../services/auth'; 
 
 export default function Login() {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
-  const navigate = useNavigate();
 
   const handleLoginSubmit = async (e) => {
   e.preventDefault();
